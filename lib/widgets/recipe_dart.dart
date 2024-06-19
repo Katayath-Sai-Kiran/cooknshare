@@ -7,64 +7,60 @@ class RecipeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            image: const DecorationImage(
-              image: AssetImage(
-                'assets/asset1.jpeg',
-              ),
-              fit: BoxFit.cover,
-            ),
-            color: Colors.blueGrey.shade300,
-            borderRadius: BorderRadius.circular(16),
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        image: const DecorationImage(
+          image: AssetImage(
+            'assets/asset1.jpeg',
           ),
-          width: Get.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          fit: BoxFit.cover,
+        ),
+        color: Colors.blueGrey.shade300,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      width: Get.width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Orange Based',
-                    style: GoogleFonts.roboto(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.favorite_border,
-                      color: Colors.white,
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(height: Get.height * 0.35),
               Text(
-                'Week Night \nRecipies',
-                style: GoogleFonts.montserrat(
-                  fontSize: 21,
-                  fontWeight: FontWeight.bold,
+                'Orange Based',
+                style: GoogleFonts.roboto(
+                  fontWeight: FontWeight.w500,
                   color: Colors.white,
                 ),
               ),
-              const SizedBox(height: 12),
-              Text(
-                '40 Likes | 200 Views',
-                style: GoogleFonts.montserrat(
-                  fontWeight: FontWeight.w500,
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.favorite_border,
                   color: Colors.white,
                 ),
               )
             ],
           ),
-        ),
-      ],
+          SizedBox(height: Get.height * 0.35),
+          Text(
+            'Week Night \nRecipies',
+            style: GoogleFonts.montserrat(
+              fontSize: 21,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            '40 Likes | 200 Views',
+            style: GoogleFonts.montserrat(
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

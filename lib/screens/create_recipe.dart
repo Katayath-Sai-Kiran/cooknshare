@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../widgets/search_field.dart';
+import 'preview.dart';
 
 class CreateRecipeScreen extends StatefulWidget {
   const CreateRecipeScreen({super.key});
@@ -336,20 +337,50 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ElevatedButton(
+                  IconButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(Get.width * 0.45, 48),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
-                      onPressed: () {},
-                      child: const Text('Preview')),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          fixedSize: Size(Get.width * 0.45, 48),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
-                      onPressed: () {},
-                      child: const Text('Save')),
+                          backgroundColor: Colors.orange,
+                          fixedSize: Size(Get.width * 0.15, 48),
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(8),
+                                topRight: Radius.circular(4),
+                                bottomRight: Radius.circular(4),
+                                bottomLeft: Radius.circular(8)),
+                          )),
+                      onPressed: () {
+                        Get.to(() => PreviewScreen(
+                              image: selectedImages.first!,
+                              mainIngredient: 'Watermelon',
+                              title: 'Watermilon Juice',
+                            ));
+                      },
+                      icon: const Icon(
+                        Icons.visibility,
+                        color: Colors.white,
+                      )),
+                  const SizedBox(width: 2),
+                  Flexible(
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.orange,
+                            fixedSize: Size(Get.width, 48),
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(4),
+                                  topLeft: Radius.circular(4),
+                                  topRight: Radius.circular(8),
+                                  bottomRight: Radius.circular(8)),
+                            )),
+                        onPressed: () {},
+                        child: Text(
+                          'Save',
+                          style: GoogleFonts.montserrat(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )),
+                  ),
                 ],
               )
             ],
